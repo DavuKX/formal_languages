@@ -27,8 +27,8 @@ def alphabet(a: str, b: str):
         typer.echo(f"Alphabet B: {symbols_b}")
 
         # Guardar los elementos en listas
-        alphabet_a = symbols_a
-        alphabet_b = symbols_b
+        alphabet_a = set(symbols_a)
+        alphabet_b = set(symbols_b)
         
         # Mostrar las listas
         typer.echo(f"List A : {alphabet_a}")
