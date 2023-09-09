@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 click==8.1.7
 colorama==0.4.6
 markdown-it-py==3.0.0
@@ -12,3 +13,14 @@ six==1.16.0
 typer==0.9.0
 typing_extensions==4.7.1
 wcwidth==0.2.6
+=======
+click==8.1.7
+colorama==0.4.6
+markdown-it-py==3.0.0
+mdurl==0.1.2
+Pygments==2.16.1
+rich==13.5.2
+shellingham==1.5.3
+typer==0.9.0
+typing_extensions==4.7.1
+>>>>>>> 7d555ec60566f77308e3fa1ae1f9e4a589a1fc2d
