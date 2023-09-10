@@ -1,15 +1,24 @@
-class set_operations():
-    def __init__(self, set1, set2):
-        self.set1 = set1
-        self.set2 = set2
+class SetOperations:
+    def __init__(self, values: set):
+        self.values = values
 
-    def union(self):
-        pass
+    def set_values(self, values: set):
+        self.values = values
+        return self
 
-    def intersection(self):
-        pass
+    def get_values(self):
+        return self.values
 
-    def difference(self):
-        pass
+    def union(self, set2: set):
+        self.values = self.values.union(set2)
+        return self
+
+    def intersection(self, set2: set):
+        self.values = self.values.intersection(set2)
+        return self
+
+    def difference(self, set2: set):
+        self.values = self.values.difference(set2)
+        return self
 
     

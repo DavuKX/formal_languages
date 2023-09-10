@@ -1,18 +1,20 @@
-class Language():
-    def __init__(self, language_a, language_b):
-        self.language_a = language_a
-        self.language_b = language_b
+from src.entities.set_operations import SetOperations
+
+
+class Language(SetOperations):
+    def __init__(self, values: set):
+        super().__init__(values)
     
-    def concatenation():
+    def concatenation(self):
         pass
 
-    def power():
+    def power(self):
         pass
 
-    def inverse():
+    def inverse(self):
         pass
 
-    def cardinality():
+    def cardinality(self):
         pass
     
         
