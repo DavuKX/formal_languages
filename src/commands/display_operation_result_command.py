@@ -1,6 +1,5 @@
-from src.commands.command import Command
 from src.entities.set_operations import SetOperations
-
+from src.commands.command import Command
 
 class DisplayOperationResultCommand(Command):
     def __init__(self, result=None):
@@ -15,3 +14,4 @@ class DisplayOperationResultCommand(Command):
 
     def get_result(self):
         return self.result
+

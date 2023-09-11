@@ -4,11 +4,11 @@ from src.commands.display_operation_result_command import DisplayOperationResult
 from src.commands.invoker import Invoker
 from src.entities.alphabet import Alphabet
 
+
 app = typer.Typer()
 
-
 @app.command()
-def input_data(alphabets: str, words_number: int = 20):
+def input_data(alphabets: str, words_number: int = 20, power: int = 1):
     pattern = r'\s*(\w+)\s*=\s*{([^}]+)}'
     matches = re.findall(pattern, alphabets)
     formatted_alphabets = []
@@ -23,6 +23,10 @@ def input_data(alphabets: str, words_number: int = 20):
     invoker.execute_action('difference', formatted_alphabets)
     invoker.execute_action('intersection', formatted_alphabets)
     invoker.execute_action('kleene_closure', formatted_alphabets, words_number)
+    invoker.execute_action('concatenation', formatted_alphabets)
+    invoker.execute_action('power', formatted_alphabets[0], power)
+    invoker.execute_action('inverse', formatted_alphabets[0])
+    invoker.execute_action('cardinality', formatted_alphabets[0])
 
 
 if __name__ == "__main__":
