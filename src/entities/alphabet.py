@@ -2,6 +2,7 @@ import copy
 import random
 
 from src.entities.set_operations import SetOperations
+from src.entities.language import Language
 
 
 class Alphabet(SetOperations):
@@ -19,6 +20,9 @@ class Alphabet(SetOperations):
     #         result = result.union(result.concat(self).get_values())
     #     return result
         
+    def validate_lamba(self):
+        pass
+
     def generate_words_with_kleene_closure(self, words_number, max_word_length):
         generated_words = set()
 
@@ -30,9 +34,16 @@ class Alphabet(SetOperations):
         return Alphabet(generated_words)
     
     def generate_language(self, words_number, max_word_length):
-        languages = set()
-        language_a = self.generate_words_with_kleene_closure(words_number, max_word_length)
-        language_b = self.generate_words_with_kleene_closure(words_number, max_word_length)
-        languages.add(language_a)
-        languages.add(language_b)
-        return Alphabet(languages)
+        # languages = set()
+        # languages = self.generate_words_with_kleene_closure(words_number, max_word_length)
+        # language_b = self.generate_words_with_kleene_closure(words_number, max_word_length)
+        #languages.add(language_a)
+        # languages.add(language_b)
+        return self.generate_words_with_kleene_closure(words_number, max_word_length)
+
+
+    
+
+    
+
+    

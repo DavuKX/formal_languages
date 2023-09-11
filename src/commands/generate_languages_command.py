@@ -8,8 +8,8 @@ class GenerateLanguagesCommand(Command):
         self._max_word_length = max_word_length
 
     def execute(self):
-        languages = Alphabet(set())
-        languages = languages.generate_language(self._simbols_number, self._max_word_length)
+        alphabet = self._payload
+        languages = alphabet.generate_language(self._simbols_number, self._max_word_length)
         return languages
         
      

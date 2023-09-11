@@ -41,13 +41,16 @@ def input_data(alphabets: str):
     print()
     print("--------Lenguajes--------", end="\n\n")
     words_number = int(input("Numero de palabras a generar de los lenguajes:"))
-    max_word_length = int(input("Cantidad de palabras de los lenguajes:"))
-    invoker.execute_action('generate_languages',formatted_alphabets, words_number,max_word_length)
+    max_word_length = int(input("Longitud maxima de las palabras:"))
+    
+    x = invoker.execute_action('kleene_closure', formatted_alphabets, words_number,max_word_length)
+
+    invoker.execute_action('generate_languages',x,words_number,max_word_length)
     
     # invoker.execute_action('concatenation', formatted_alphabets)
     # invoker.execute_action('power', formatted_alphabets[0], power)
     # invoker.execute_action('inverse', formatted_alphabets[0])
     # invoker.execute_action('cardinality', formatted_alphabets[0])
-
+    
 if __name__ == "__main__":
     app()
