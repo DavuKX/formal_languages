@@ -3,7 +3,10 @@ from src.commands.difference_command import DifferenceCommand
 from src.commands.intersection_command import IntersectionCommand
 from src.commands.kleene_closure_command import KleeneClosureCommand
 from src.commands.union_command import UnionCommand
-
+from src.commands.concatenation_language_command import CalculateConcatenationCommand
+from src.commands.power_language_command import CalculatePowerCommand
+from src.commands.inverse_language_command import CalculateInverseCommand
+from src.commands.cardinality_command import CalculateCardinalityCommand
 
 class Invoker:
     _on_start = None
@@ -12,7 +15,11 @@ class Invoker:
         'union': UnionCommand,
         'difference': DifferenceCommand,
         'intersection': IntersectionCommand,
-        'kleene_closure': KleeneClosureCommand
+        'kleene_closure': KleeneClosureCommand,
+        'concatenation': CalculateConcatenationCommand,
+        'power': CalculatePowerCommand,
+        'inverse': CalculateInverseCommand,
+        'cardinality': CalculateCardinalityCommand
     }
 
     def set_on_start(self, command: Command) -> None:
