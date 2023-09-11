@@ -7,6 +7,7 @@ from src.commands.concatenation_language_command import CalculateConcatenationCo
 from src.commands.power_language_command import CalculatePowerCommand
 from src.commands.inverse_language_command import CalculateInverseCommand
 from src.commands.cardinality_command import CalculateCardinalityCommand
+from src.commands.generate_languages_command import GenerateLanguagesCommand
 
 class Invoker:
     _on_start = None
@@ -19,7 +20,8 @@ class Invoker:
         'concatenation': CalculateConcatenationCommand,
         'power': CalculatePowerCommand,
         'inverse': CalculateInverseCommand,
-        'cardinality': CalculateCardinalityCommand
+        'cardinality': CalculateCardinalityCommand,
+        'generate_languages': GenerateLanguagesCommand
     }
 
     def set_on_start(self, command: Command) -> None:
