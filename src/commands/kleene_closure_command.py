@@ -1,7 +1,6 @@
 from src.commands.command import Command
 from src.commands.union_command import UnionCommand
 
-
 class KleeneClosureCommand(Command):
     def __init__(self, payload, simbols_number,max_word_length) -> None:
         self._payload = list(payload)
