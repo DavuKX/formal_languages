@@ -21,26 +21,33 @@ def input_data(alphabets: str):
 
     invoker = Invoker()
     invoker.set_on_finish(DisplayOperationResultCommand())
+    print("--------Alfabetos--------", end="\n\n")
     print(f'Union:')
     invoker.execute_action('union', formatted_alphabets)
+    print()
+
     print(f'Interseccion:')
     invoker.execute_action('intersection', formatted_alphabets)
+    print()
 
     print(f'Diferencia:')
     invoker.execute_action('difference', formatted_alphabets)
-
-    invoker.execute_action('kleene_closure', formatted_alphabets, words_number)
-    invoker.execute_action('concatenation', formatted_alphabets)
-    invoker.execute_action('power', formatted_alphabets[0], power)
-    invoker.execute_action('inverse', formatted_alphabets[0])
-    invoker.execute_action('cardinality', formatted_alphabets[0])
-
-
+    print()
     words_number = int(input("Numero de palabras a generar para calcular cerradura de estrella:"))
-    max_word_length = int(input("Longitud de las palabras:"))
+    max_word_length = int(input("Cantidad de símbolos maximos de las palabras:"))
     print(f'Cerradura de estrella:')
     invoker.execute_action('kleene_closure', formatted_alphabets, words_number,max_word_length)
-    #invoker.execute_action('kleene_closure', formatted_alphabets, words_number, words_length)
+
+    print()
+    print("--------Lenguajes--------", end="\n\n")
+    words_number = int(input("Numero de palabras a generar de los lenguajes:"))
+    max_word_length = int(input("Cantidad de palabras de los lenguajes:"))
+    invoker.execute_action('generate_languages',formatted_alphabets, words_number,max_word_length)
+    
+    # invoker.execute_action('concatenation', formatted_alphabets)
+    # invoker.execute_action('power', formatted_alphabets[0], power)
+    # invoker.execute_action('inverse', formatted_alphabets[0])
+    # invoker.execute_action('cardinality', formatted_alphabets[0])
 
 if __name__ == "__main__":
     app()
