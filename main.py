@@ -8,7 +8,7 @@ app = typer.Typer()
 
 
 @app.command()
-def input_data(alphabets: str, words_number: int = 20):
+def input_data(alphabets: str):
     pattern = r'\s*(\w+)\s*=\s*{([^}]+)}'
     matches = re.findall(pattern, alphabets)
     formatted_alphabets = []
@@ -19,11 +19,18 @@ def input_data(alphabets: str, words_number: int = 20):
 
     invoker = Invoker()
     invoker.set_on_finish(DisplayOperationResultCommand())
+    print(f'Union:')
     invoker.execute_action('union', formatted_alphabets)
-    invoker.execute_action('difference', formatted_alphabets)
+    print(f'Interseccion:')
     invoker.execute_action('intersection', formatted_alphabets)
-    invoker.execute_action('kleene_closure', formatted_alphabets, words_number)
+    print(f'Diferencia:')
+    invoker.execute_action('difference', formatted_alphabets)
 
+    words_number = int(input("Numero de palabras a generar para calcular cerradura de estrella:"))
+    max_word_length = int(input("Longitud de las palabras:"))
+    print(f'Cerradura de estrella:')
+    invoker.execute_action('kleene_closure', formatted_alphabets, words_number,max_word_length)
+    #invoker.execute_action('kleene_closure', formatted_alphabets, words_number, words_length)
 
 if __name__ == "__main__":
     app()

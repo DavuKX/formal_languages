@@ -1,4 +1,5 @@
 import copy
+import random
 
 from src.entities.set_operations import SetOperations
 
@@ -17,18 +18,13 @@ class Alphabet(SetOperations):
         for i in range(power - 1):
             result = result.union(result.concat(self).get_values())
         return result
+        
+    def generate_words_with_kleene_closure(self, words_number, max_word_length):
+        generated_words = set()
 
-    def generate_words_with_kleene_closure(self, words_number):
-        current_word_count = len(self.values)
+        while len(generated_words) < words_number:
+            random_word_length = random.randint(1, max_word_length)
+            random_word = ''.join(random.choice(list(self.values)) for _ in range(random_word_length))
+            generated_words.add(random_word)
 
-        if current_word_count >= words_number:
-            print(1)
-            selected_words = set(list(self.values)[:words_number])
-            return Alphabet(selected_words)
-        else:
-            additional_words_needed = words_number - current_word_count
-            power_value = (additional_words_needed // current_word_count) + 2
-            new_alphabet = self.power(power_value)
-
-            selected_words = set(list(new_alphabet.values)[:words_number])
-            return Alphabet(selected_words)
+        return Alphabet(generated_words)
