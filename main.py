@@ -25,13 +25,14 @@ def input_data(alphabets: str):
     invoker.execute_action('union', formatted_alphabets)
     print()
 
+    print(f'Diferencia:')
+    invoker.execute_action('difference', formatted_alphabets)
+    print()
+
     print(f'Intersección:')
     invoker.execute_action('intersection', formatted_alphabets)
     print()
 
-    print(f'Diferencia:')
-    invoker.execute_action('difference', formatted_alphabets)
-    print()
     words_number = int(input("Número de palabras a generar para calcular cerradura de estrella: "))
     max_word_length = int(input("Cantidad de símbolos máximos de las palabras: "))
     print(f'Cerradura de estrella:')
@@ -50,6 +51,14 @@ def input_data(alphabets: str):
 
     print(f'Unión:')
     joined_languages = invoker.execute_action('union', languages)
+    print()
+    
+    print(f'Diferencia:')
+    invoker.execute_action('difference', languages)
+    print()
+    
+    print(f'Interseccion:')
+    invoker.execute_action('intersection', languages)
     print()
     
     print(f'Concatenación:')
