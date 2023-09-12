@@ -20,7 +20,7 @@ class Alphabet(SetOperations):
     #         result = result.union(result.concat(self).get_values())
     #     return result
         
-    def validate_lamba(self):
+    def validate_lambda(self):
         pass
 
     def generate_words_with_kleene_closure(self, words_number, max_word_length):

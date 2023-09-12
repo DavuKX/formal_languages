@@ -1,3 +1,5 @@
+import re
+
 from src.entities.set_operations import SetOperations
 
 
@@ -32,4 +34,7 @@ class Language(SetOperations):
 
     def cardinality(self):
         return len(self.values)
+
+    def has_lambda(self):
+        return re.search(r'^#$', self.get_values()) is not None
 

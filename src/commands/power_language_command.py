@@ -1,5 +1,6 @@
 from src.commands.command import Command
 
+
 class CalculatePowerCommand(Command):
     def __init__(self, payload, power):
         self._payload = payload
@@ -7,4 +8,3 @@ class CalculatePowerCommand(Command):
 
     def execute(self):
         return self._payload.power(self._power)
-

@@ -9,4 +9,6 @@ class KleeneClosureCommand(Command):
 
     def execute(self):
         joined_alphabets = UnionCommand(self._payload).execute()
+        #check if the alphabet has lambda
+
         return joined_alphabets.generate_words_with_kleene_closure(self._simbols_number,self._max_word_length)

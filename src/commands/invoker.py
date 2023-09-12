@@ -9,6 +9,7 @@ from src.commands.inverse_language_command import CalculateInverseCommand
 from src.commands.cardinality_command import CalculateCardinalityCommand
 from src.commands.generate_languages_command import GenerateLanguagesCommand
 
+
 class Invoker:
     _on_start = None
     _on_finish = None
@@ -38,7 +39,9 @@ class Invoker:
         if isinstance(self._on_start, Command):
             self._on_start.execute()
 
+        values.remove('#')
         action_result = self.actions[action](values, *args).execute()
+        action_result.set_values(action_result.get_values().union({'#'}))
 
         if isinstance(self._on_finish, Command):
             on_finish = self._on_finish
