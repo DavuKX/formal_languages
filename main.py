@@ -2,7 +2,6 @@ import re
 import typer
 from src.commands.display_operation_result_command import DisplayOperationResultCommand
 from src.commands.invoker import Invoker
-from src.commands.valida_lamda_command import ValidateLambdaCommand
 from src.entities.alphabet import Alphabet
 
 app = typer.Typer()
@@ -49,10 +48,16 @@ def input_data(alphabets: str):
     language_2 = invoker.execute_action('generate_languages', kleened_closure_alphabet, words_number, max_word_length)
     languages = [language_1, language_2]
 
+    print(f'Union:')
     joined_languages = invoker.execute_action('union', languages)
+    print(f'Concatenacino:')
     invoker.execute_action('concatenation', languages)
-    invoker.execute_action('power', joined_languages, 2)
+    power = int(input("Ingrese la potencia a calcular:"))
+    print(f'Potencia:')
+    invoker.execute_action('power', joined_languages, power)
+    print(f'Inversa:')
     invoker.execute_action('inverse', joined_languages)
+    print(f'Cardinalidad:')
     invoker.execute_action('cardinality', joined_languages)
 
 
