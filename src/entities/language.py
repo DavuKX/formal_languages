@@ -6,12 +6,23 @@ from src.entities.set_operations import SetOperations
 class Language(SetOperations):
     def __init__(self, values: set):
         super().__init__(values)
-
-    def concatenation(self, other_language):
+    
+    def concatenation(self, language):
         result_values = set()
-        for value1 in self.get_values():
-            for value2 in other_language.get_values():
-                result_values.add(value1 + value2)
+        for value1 in language[0].get_values():
+            print("value1")
+            print(value1)
+            for value2 in language[1].get_values():
+                print("value2")
+                print(value2)
+                if value1 != '#' and value2 != '#':
+                    result_values.add(value1 + value2)
+                elif value1 == '#' and value2 != '#':
+                    result_values.add(value2)
+                elif value1 != '#' and value2 == '#':
+                    result_values.add(value1)
+                else:
+                    result_values.add('#')
         return Language(result_values)
 
     def power(self, exponent):
@@ -35,6 +46,6 @@ class Language(SetOperations):
     def cardinality(self):
         return len(self.values)
 
-    def has_lambda(self):
-        return re.search(r'^#$', self.get_values()) is not None
+    # def has_lambda(self):
+    #     return re.search(r'^#$', self.get_values()) is not None
 

@@ -24,28 +24,21 @@ class Invoker:
         'cardinality': CalculateCardinalityCommand,
         'generate_languages': GenerateLanguagesCommand
     }
-
     def set_on_start(self, command: Command) -> None:
         self._on_start = command
-
     def set_on_finish(self, command: Command) -> None:
         self._on_finish = command
-
     def execute_action(self, action, values: list, *args):
         if action not in self.actions:
             print('Action not found')
             return False
-
         if isinstance(self._on_start, Command):
             self._on_start.execute()
 
-        values.remove('#')
         action_result = self.actions[action](values, *args).execute()
-        action_result.set_values(action_result.get_values().union({'#'}))
 
         if isinstance(self._on_finish, Command):
             on_finish = self._on_finish
             on_finish.set_result(action_result)
             on_finish.execute()
-
         return action_result
