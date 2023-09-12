@@ -1,16 +1,12 @@
 from src.commands.command import Command
+from src.entities.language import Language as Lenguage
 
 class CalculateConcatenationCommand(Command):
     def __init__(self, payload):
         self._payload = payload
 
     def execute(self):
-        result = self._payload[0]
-        for language in self._payload[1:]:
-            new_result = set()
-            for word1 in result.get_values():
-                for word2 in language.get_values():
-                    new_result.add(word1 + word2)
-            result.set_values(new_result)
+        result = Lenguage(set())
+        result = result.concatenation(self._payload)
+        return result   
 
-        return result

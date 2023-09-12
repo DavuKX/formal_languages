@@ -9,6 +9,7 @@ from src.commands.inverse_language_command import CalculateInverseCommand
 from src.commands.cardinality_command import CalculateCardinalityCommand
 from src.commands.generate_languages_command import GenerateLanguagesCommand
 
+
 class Invoker:
     _on_start = None
     _on_finish = None
@@ -23,18 +24,14 @@ class Invoker:
         'cardinality': CalculateCardinalityCommand,
         'generate_languages': GenerateLanguagesCommand
     }
-
     def set_on_start(self, command: Command) -> None:
         self._on_start = command
-
     def set_on_finish(self, command: Command) -> None:
         self._on_finish = command
-
     def execute_action(self, action, values: list, *args):
         if action not in self.actions:
             print('Action not found')
             return False
-
         if isinstance(self._on_start, Command):
             self._on_start.execute()
 
@@ -44,5 +41,4 @@ class Invoker:
             on_finish = self._on_finish
             on_finish.set_result(action_result)
             on_finish.execute()
-
         return action_result
