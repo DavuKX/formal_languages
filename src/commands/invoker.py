@@ -18,12 +18,13 @@ class Invoker:
         'difference': DifferenceCommand,
         'intersection': IntersectionCommand,
         'kleene_closure': KleeneClosureCommand,
+        'generate_languages': GenerateLanguagesCommand,
         'concatenation': CalculateConcatenationCommand,
         'power': CalculatePowerCommand,
         'inverse': CalculateInverseCommand,
-        'cardinality': CalculateCardinalityCommand,
-        'generate_languages': GenerateLanguagesCommand
+        'cardinality': CalculateCardinalityCommand
     }
+    
     def set_on_start(self, command: Command) -> None:
         self._on_start = command
     def set_on_finish(self, command: Command) -> None:

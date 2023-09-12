@@ -6,10 +6,7 @@ class CalculateInverseCommand(Command):
         self._payload = payload
 
     def execute(self):
-        inverse_values = set()
-        for word in self._payload.get_values():
-            inverse_values.add(word[::-1])
-        return Language(inverse_values)
+        return self._payload.inverse()
 
 
 
