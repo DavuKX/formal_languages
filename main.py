@@ -48,7 +48,7 @@ def input_data(alphabets: str):
     languages = [language_1, language_2]
 
     print(f'Union:')
-    invoker.execute_action('union', languages)
+    joined_languages = invoker.execute_action('union', languages)
     print()
 
     print(f'Interseccion:')
@@ -65,11 +65,11 @@ def input_data(alphabets: str):
 
     power = int(input("Ingrese la potencia a calcular:"))
     print(f'Potencia:')
-    #invoker.execute_action('power', joined_languages, power)
+    invoker.execute_action('power', joined_languages, power)
     print(f'Inversa:')
-    #invoker.execute_action('inverse', joined_languages)
+    invoker.execute_action('inverse', joined_languages)
     print(f'Cardinalidad:')
-    #invoker.execute_action('cardinality', joined_languages)
+    invoker.execute_action('cardinality', joined_languages)
 
 
 def check_input(input_str: str):
@@ -77,7 +77,7 @@ def check_input(input_str: str):
     pattern_2 = r'[^,{]#'
 
     if re.search(pattern_1, input_str) or re.search(pattern_2, input_str):
-        typer.echo("Error: lambda no puede estar acomñañado de otros símbolos.")
+        typer.echo("Error: lambda no puede estar acompañado de otros símbolos.")
         raise typer.Exit()
 
 

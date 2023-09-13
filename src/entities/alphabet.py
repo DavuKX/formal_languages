@@ -1,24 +1,9 @@
-import copy
 import random
-
 from src.entities.set_operations import SetOperations
 from src.entities.language import Language
 
 
 class Alphabet(SetOperations):
-
-    # def concat(self, alphabet):
-    #     result = set()
-    #     for i in self.get_values():
-    #         for j in alphabet.get_values():
-    #             result.add(i + j)
-    #     return Alphabet(result)
-
-    # def power(self, power):
-    #     result = copy.deepcopy(self)
-    #     for i in range(power - 1):
-    #         result = result.union(result.concat(self).get_values())
-    #     return result
         
     def validate_lambda(self):
         pass
@@ -36,19 +21,7 @@ class Alphabet(SetOperations):
             else:
                 generated_words.add(random_word)
 
-        return Alphabet(generated_words)
+        return Language(generated_words)
     
     def generate_language(self, words_number, max_word_length):
-        # languages = set()
-        # languages = self.generate_words_with_kleene_closure(words_number, max_word_length)
-        # language_b = self.generate_words_with_kleene_closure(words_number, max_word_length)
-        #languages.add(language_a)
-        # languages.add(language_b)
         return self.generate_words_with_kleene_closure(words_number, max_word_length)
-
-
-    
-
-    
-
-    
