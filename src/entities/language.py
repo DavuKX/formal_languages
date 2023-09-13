@@ -8,11 +8,7 @@ class Language(SetOperations):
     def concatenation(self, language):
         result_values = set()
         for value1 in language[0].get_values():
-            print("value1")
-            print(value1)
             for value2 in language[1].get_values():
-                print("value2")
-                print(value2)
                 if value1 != '#' and value2 != '#':
                     result_values.add(value1 + value2)
                 elif value1 == '#' and value2 != '#':
