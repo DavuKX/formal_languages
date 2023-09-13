@@ -24,11 +24,13 @@ class Invoker:
         'inverse': CalculateInverseCommand,
         'cardinality': CalculateCardinalityCommand
     }
-    
+
     def set_on_start(self, command: Command) -> None:
         self._on_start = command
+
     def set_on_finish(self, command: Command) -> None:
         self._on_finish = command
+
     def execute_action(self, action, values: list, *args):
         if action not in self.actions:
             print('Action not found')

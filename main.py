@@ -49,8 +49,13 @@ def input_data(alphabets: str):
     language_2 = invoker.execute_action('generate_languages', kleened_closure_alphabet, words_number, max_word_length)
     languages = [language_1, language_2]
 
-    print(f'Unión:')
+
+    print(f'Union:')
     joined_languages = invoker.execute_action('union', languages)
+    print()
+
+    print(f'Interseccion:')
+    invoker.execute_action('intersection', languages)
     print()
     
     print(f'Diferencia:')
@@ -83,7 +88,7 @@ def check_input(input_str: str):
     pattern_2 = r'[^,{]#'
 
     if re.search(pattern_1, input_str) or re.search(pattern_2, input_str):
-        typer.echo("Error: Lambda no puede estar acompañado de otros símbolos.")
+        typer.echo("Error: lambda no puede estar acompañado de otros símbolos.")
         raise typer.Exit()
 
 

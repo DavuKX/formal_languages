@@ -1,10 +1,10 @@
 import random
-
-
+from src.entities.set_operations import SetOperations
+from src.entities.language import Language
 from src.entities.set_operations import SetOperations
 
 class Alphabet(SetOperations):
-
+  
     def validate_lambda(self):
         pass
 
@@ -21,14 +21,7 @@ class Alphabet(SetOperations):
             else:
                 generated_words.add(random_word)
 
-        return Alphabet(generated_words)
+        return Language(generated_words)
     
     def generate_language(self, words_number, max_word_length):
         return self.generate_words_with_kleene_closure(words_number, max_word_length)
-
-
-    
-
-    
-
-    
