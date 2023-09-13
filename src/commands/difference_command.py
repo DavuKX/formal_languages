@@ -1,5 +1,4 @@
 import copy
-
 from src.commands.command import Command
 
 

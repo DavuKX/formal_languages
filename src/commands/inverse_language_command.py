@@ -1,5 +1,5 @@
 from src.commands.command import Command
-from src.entities.language import Language
+
 
 class CalculateInverseCommand(Command):
     def __init__(self, payload):

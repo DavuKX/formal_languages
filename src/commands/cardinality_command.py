@@ -1,5 +1,5 @@
 from src.commands.command import Command
-from src.entities.language import Language
+
 
 class CalculateCardinalityCommand(Command):
     def __init__(self, payload):

@@ -1,7 +1,4 @@
-import re
-
 from src.entities.set_operations import SetOperations
-
 
 class Language(SetOperations):
     def __init__(self, values: set):
@@ -10,11 +7,7 @@ class Language(SetOperations):
     def concatenation(self, language):
         result_values = set()
         for value1 in language[0].get_values():
-            print("value1")
-            print(value1)
             for value2 in language[1].get_values():
-                print("value2")
-                print(value2)
                 if value1 != '#' and value2 != '#':
                     result_values.add(value1 + value2)
                 elif value1 == '#' and value2 != '#':
@@ -45,7 +38,4 @@ class Language(SetOperations):
 
     def cardinality(self):
         return len(self.values)
-
-    # def has_lambda(self):
-    #     return re.search(r'^#$', self.get_values()) is not None
 
