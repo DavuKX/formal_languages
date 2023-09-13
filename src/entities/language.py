@@ -28,6 +28,12 @@ class Language(SetOperations):
     def power(self, exponent):
         if exponent < 1:
             raise ValueError("Exponent must be positive")
+
+        contains_lambda = False
+        if '#' in self.get_values():
+            self.values.remove('#')
+            contains_lambda = True
+
         result = Language(self.get_values())
         for i in range(exponent - 1):
             new_result = Language(set())
@@ -35,6 +41,9 @@ class Language(SetOperations):
                 for word2 in self.get_values():
                     new_result.get_values().add(word1 + word2)
             result = new_result
+
+        if contains_lambda:
+            result.get_values().add('#')
         return result
 
     def inverse(self):
